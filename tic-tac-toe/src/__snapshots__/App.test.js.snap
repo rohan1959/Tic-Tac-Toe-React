@@ -18,6 +18,7 @@ exports[`render app with tic-tac-toe layout 1`] = `
       >
         <div
           className="status"
+          id="status"
         >
           Player to make move is X
            
@@ -77,6 +78,13 @@ exports[`render app with tic-tac-toe layout 1`] = `
               />
             </div>
           </div>
+        </div>
+        <div
+          className="status center"
+          id="summary"
+        >
+           
+           
         </div>
       </div>
     </div>

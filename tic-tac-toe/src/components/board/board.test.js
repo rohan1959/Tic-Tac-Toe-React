@@ -35,7 +35,7 @@ describe('test board component', () => {
 
   it('show the current player to make move', () => {
     const wrapper = shallow(<Board />);
-    expect(wrapper.find('div.status').text()).toMatch(/Player to make move is/);
+    expect(wrapper.find('div#status').text()).toMatch(/Player to make move is/);
   });
 
   it('check for a winning pattern and true', () => {
@@ -60,7 +60,7 @@ describe('test board component', () => {
     expect(checkWinner(instance.state.squares)).toBeFalsy();
   });
 
-  it('show winner if winner is exists and stop game', ()=> {
+  it('show winner if winner is exists and stop game', () => {
     const wrapper = shallow(<Board />);
     const instance = wrapper.instance();
     wrapper.find(Square).at(0).simulate('click');
@@ -68,7 +68,7 @@ describe('test board component', () => {
     wrapper.find(Square).at(1).simulate('click');
     wrapper.find(Square).at(4).simulate('click');
     wrapper.find(Square).at(2).simulate('click');
-    expect(wrapper.find('div.summary').text()).toMatch(/Winner/);
+    expect(wrapper.find('div#summary').text()).toMatch(/Winner/);
 
   })
 

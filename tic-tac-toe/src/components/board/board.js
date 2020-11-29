@@ -1,7 +1,7 @@
 import Square from "../square/square";
 import React from 'react';
 import './board.css';
-import { shallow } from "enzyme";
+import { checkWinner } from '../../utilities/checkWinner';
 
 class Board extends React.Component {
 
@@ -15,6 +15,9 @@ class Board extends React.Component {
 
   handleClick(i) {
     const squares = this.state.squares.slice();
+    if (checkWinner(squares) || squares[i]) {
+      return; // this condition stops the user from clicking anymore once we have a winner. 
+    }
     squares[i] = this.state.xAndOToggle ? 'X' : 'O';
     this.setState({
       squares: squares,
@@ -57,15 +60,20 @@ class Board extends React.Component {
   }
 
   render() {
+    const winner = checkWinner(this.state.squares);
+    let gameSummary;
+    if (winner) {
+      gameSummary = 'Winner: ' + winner;
+    }
     let currentPlayer = `Player to make move is ${this.state.xAndOToggle ? 'X' : 'O'}`;
     return (
       <div className="container-vertical">
-        <div className="status">{currentPlayer} </div>
+        <div id="status" className="status">{currentPlayer} </div>
         <div className="center">
           {this.renderBoard()}
         </div>
+        <div id="summary" className="status center"> {gameSummary} </div>
       </div>
-      
     );
   }
 
