@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render app with tic-tac-toe layout 1`] = `ShallowWrapper {}`;
