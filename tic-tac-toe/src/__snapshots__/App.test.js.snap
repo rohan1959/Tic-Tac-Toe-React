@@ -80,13 +80,6 @@ exports[`render app with tic-tac-toe layout 1`] = `
           </div>
         </div>
         <div
-          className="status center"
-          id="summary"
-        >
-           
-           
-        </div>
-        <div
           className="game-options"
         >
           <button
@@ -96,6 +89,13 @@ exports[`render app with tic-tac-toe layout 1`] = `
           >
             Reset
           </button>
+        </div>
+        <div
+          className="status center"
+          id="summary"
+        >
+           
+           
         </div>
       </div>
     </div>
