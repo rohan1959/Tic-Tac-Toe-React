@@ -109,6 +109,11 @@ describe('test board component', () => {
     const wrapper = shallow(<Board />);
     wrapper.find(Square).at(0).simulate('click');
     expect(wrapper.find('button#reset').props().disabled).toBeFalsy();
+  });
+
+  it('should have a undo button', ()=> {
+    const wrapper = shallow(<Board />);
+    expect(wrapper.find('button#undo').text()).toBe('Undo');
   })
 
 });
