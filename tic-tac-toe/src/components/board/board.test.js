@@ -62,14 +62,17 @@ describe('test board component', () => {
 
   it('show winner if winner is exists and stop game', () => {
     const wrapper = shallow(<Board />);
-    const instance = wrapper.instance();
     wrapper.find(Square).at(0).simulate('click');
     wrapper.find(Square).at(5).simulate('click');
     wrapper.find(Square).at(1).simulate('click');
     wrapper.find(Square).at(4).simulate('click');
     wrapper.find(Square).at(2).simulate('click');
     expect(wrapper.find('div#summary').text()).toMatch(/Winner/);
+  })
 
+  it('reset button should be seen', () => {
+    const wrapper = shallow(<Board/>);
+    (wrapper.find('Button#reset').text()).toMatch(/Reset/);
   })
 
 });
