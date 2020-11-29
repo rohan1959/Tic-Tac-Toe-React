@@ -114,6 +114,11 @@ describe('test board component', () => {
   it('should have a undo button', ()=> {
     const wrapper = shallow(<Board />);
     expect(wrapper.find('button#undo').text()).toBe('Undo');
-  })
+  });
+
+  it('undo button should be disabled when no more are made yet', () => {
+    const wrapper = shallow(<Board />);
+    expect(wrapper.find('button#undo').props().disabled).toBeTruthy();
+  });
 
 });
