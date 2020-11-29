@@ -7,4 +7,12 @@ describe('test board component', () => {
     const wrapper = shallow(<Board />);
     expect(wrapper.find(Square).getElements().length).toBe(9);
   });
+
+  it('initial state of the squares to be Null', () => {
+    const wrapper = shallow(<Board />);
+    const instance = wrapper.instance();
+    expect(instance.state.squares[0]).toBe(null);
+
+  })
+
 });
