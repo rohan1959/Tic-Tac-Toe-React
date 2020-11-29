@@ -1,6 +1,7 @@
 import Square from "../square/square";
 import React from 'react';
 import './board.css';
+import { shallow } from "enzyme";
 
 class Board extends React.Component {
 
@@ -56,10 +57,15 @@ class Board extends React.Component {
   }
 
   render() {
+    let currentPlayer = `Player to make move is ${this.state.xAndOToggle ? 'X' : 'O'}`;
     return (
-      <div className="center">
-        {this.renderBoard()}
+      <div className="container-vertical">
+        <div className="status">{currentPlayer} </div>
+        <div className="center">
+          {this.renderBoard()}
+        </div>
       </div>
+      
     );
   }
 

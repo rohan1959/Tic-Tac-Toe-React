@@ -14,58 +14,68 @@ exports[`render app with tic-tac-toe layout 1`] = `
       className="box"
     >
       <div
-        className="center"
+        className="container-vertical"
       >
         <div
-          className="board"
+          className="status"
+        >
+          Player to make move is X
+           
+        </div>
+        <div
+          className="center"
         >
           <div
-            className="board-row"
+            className="board"
           >
-            <button
-              className="square"
-              onClick={[Function]}
-            />
-            <button
-              className="square"
-              onClick={[Function]}
-            />
-            <button
-              className="square"
-              onClick={[Function]}
-            />
-          </div>
-          <div
-            className="board-row"
-          >
-            <button
-              className="square"
-              onClick={[Function]}
-            />
-            <button
-              className="square"
-              onClick={[Function]}
-            />
-            <button
-              className="square"
-              onClick={[Function]}
-            />
-          </div>
-          <div
-            className="board-row"
-          >
-            <button
-              className="square"
-              onClick={[Function]}
-            />
-            <button
-              className="square"
-              onClick={[Function]}
-            />
-            <button
-              className="square"
-              onClick={[Function]}
-            />
+            <div
+              className="board-row"
+            >
+              <button
+                className="square"
+                onClick={[Function]}
+              />
+              <button
+                className="square"
+                onClick={[Function]}
+              />
+              <button
+                className="square"
+                onClick={[Function]}
+              />
+            </div>
+            <div
+              className="board-row"
+            >
+              <button
+                className="square"
+                onClick={[Function]}
+              />
+              <button
+                className="square"
+                onClick={[Function]}
+              />
+              <button
+                className="square"
+                onClick={[Function]}
+              />
+            </div>
+            <div
+              className="board-row"
+            >
+              <button
+                className="square"
+                onClick={[Function]}
+              />
+              <button
+                className="square"
+                onClick={[Function]}
+              />
+              <button
+                className="square"
+                onClick={[Function]}
+              />
+            </div>
           </div>
         </div>
       </div>
