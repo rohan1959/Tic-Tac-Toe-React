@@ -32,5 +32,11 @@ describe('test board component', () => {
     expect(instance.state.squares[5]).toBe('O');
   })
   
+  it('show the current player to make move',  () => {
+    const wrapper = shallow(<Board/>);
+    expect(wrapper.find('div.status')).toMatch(/Player to make move is/);
+
+    
+  })
 
 });
