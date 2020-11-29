@@ -85,4 +85,18 @@ describe('test board component', () => {
     const instance = wrapper.instance();
     expect(instance.state.squares.every(element => element === null)).toBeTruthy();
   });
+
+  it('show game result for draw game', ()=> {
+    const wrapper = shallow(<Board />);
+    wrapper.find(Square).at(0).simulate('click');
+    wrapper.find(Square).at(4).simulate('click');
+    wrapper.find(Square).at(8).simulate('click');
+    wrapper.find(Square).at(1).simulate('click');
+    wrapper.find(Square).at(7).simulate('click');
+    wrapper.find(Square).at(6).simulate('click');
+    wrapper.find(Square).at(2).simulate('click');
+    wrapper.find(Square).at(5).simulate('click');
+    wrapper.find(Square).at(3).simulate('click');
+    expect(wrapper.find('div#summary').text()).toMatch(/Draw/);
+  })
 });
