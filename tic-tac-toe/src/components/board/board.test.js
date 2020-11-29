@@ -105,13 +105,13 @@ describe('test board component', () => {
     expect(wrapper.find('button#reset').props().disabled).toBeTruthy();
   });
 
-  it('reset button should not be disable after a move is made',()=>{
+  it('reset button should not be disable after a move is made', () => {
     const wrapper = shallow(<Board />);
     wrapper.find(Square).at(0).simulate('click');
     expect(wrapper.find('button#reset').props().disabled).toBeFalsy();
   });
 
-  it('should have a undo button', ()=> {
+  it('should have a undo button', () => {
     const wrapper = shallow(<Board />);
     expect(wrapper.find('button#undo').text()).toBe('Undo');
   });
@@ -120,5 +120,17 @@ describe('test board component', () => {
     const wrapper = shallow(<Board />);
     expect(wrapper.find('button#undo').props().disabled).toBeTruthy();
   });
+
+  it('undo button click should go back immediate previous state', () => {
+    const wrapper = shallow(<Board />);
+    //click on few squares
+    wrapper.find(Square).at(0).simulate('click');
+    wrapper.find(Square).at(5).simulate('click');
+    //click on reset all squares values should be reset to null
+    wrapper.find('button#undo').at(0).simulate('click');
+    const instance = wrapper.instance();
+    expect(instance.state.squares[0]).toBe('X');
+    expect(instance.state.squares[5]).toBeNull();
+  })
 
 });
