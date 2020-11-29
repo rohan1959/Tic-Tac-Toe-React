@@ -75,4 +75,14 @@ describe('test board component', () => {
     expect(wrapper.find('button#reset').text()).toBe('Reset');
   })
 
+  it('reset button on click should reset state of all squares', () => {
+    const wrapper = shallow(<Board />);
+    //click on few squares
+    wrapper.find(Square).at(0).simulate('click');
+    wrapper.find(Square).at(5).simulate('click');
+    //click on reset all squares values should be reset to null
+    wrapper.find('button#reset').at(0).simulate('click');
+    const instance = wrapper.instance();
+    expect(instance.state.squares.every(element => element === null)).toBeTruthy();
+  })
 });
