@@ -59,6 +59,13 @@ class Board extends React.Component {
     return row;
   }
 
+  resetGame = () => {
+    this.setState({
+      squares: Array(9).fill(null),
+      xAndOToggle: true,
+    });
+  }
+
   render() {
     const winner = checkWinner(this.state.squares);
     let gameSummary;
@@ -74,7 +81,7 @@ class Board extends React.Component {
         </div>
         <div id="summary" className="status center"> {gameSummary} </div>
         <div className="game-options" >
-          <button id="reset" className="btn btn-reset">Reset</button>
+          <button id="reset" onClick={this.resetGame} className="btn btn-reset">Reset</button>
         </div>
       </div>
     );

@@ -68,12 +68,12 @@ describe('test board component', () => {
     wrapper.find(Square).at(4).simulate('click');
     wrapper.find(Square).at(2).simulate('click');
     expect(wrapper.find('div#summary').text()).toMatch(/Winner/);
-  })
+  });
 
   it('reset button should be seen', () => {
     const wrapper = shallow(<Board />);
     expect(wrapper.find('button#reset').text()).toBe('Reset');
-  })
+  });
 
   it('reset button on click should reset state of all squares', () => {
     const wrapper = shallow(<Board />);
@@ -84,5 +84,5 @@ describe('test board component', () => {
     wrapper.find('button#reset').at(0).simulate('click');
     const instance = wrapper.instance();
     expect(instance.state.squares.every(element => element === null)).toBeTruthy();
-  })
+  });
 });
