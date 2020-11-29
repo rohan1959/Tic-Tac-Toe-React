@@ -10,6 +10,7 @@ class Board extends React.Component {
     this.state = {
       squares: Array(9).fill(null),
       xAndOToggle: true,// True for X and False for O
+      steps: 0
     };
   }
 
@@ -21,7 +22,8 @@ class Board extends React.Component {
     squares[i] = this.state.xAndOToggle ? 'X' : 'O';
     this.setState({
       squares: squares,
-      xAndOToggle: !this.state.xAndOToggle
+      xAndOToggle: !this.state.xAndOToggle,
+      steps: this.state.steps + 1
     });
   }
 
@@ -63,6 +65,7 @@ class Board extends React.Component {
     this.setState({
       squares: Array(9).fill(null),
       xAndOToggle: true,
+      steps: 0
     });
   }
 
@@ -71,6 +74,9 @@ class Board extends React.Component {
     let gameSummary;
     if (winner) {
       gameSummary = 'Winner: ' + winner;
+    }
+    else if (this.state.steps === 9 && !winner) {
+      gameSummary = 'Game Drawn';
     }
     let currentPlayer = `Player to make move is ${this.state.xAndOToggle ? 'X' : 'O'}`;
     return (
