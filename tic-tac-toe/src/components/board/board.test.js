@@ -71,8 +71,8 @@ describe('test board component', () => {
   })
 
   it('reset button should be seen', () => {
-    const wrapper = shallow(<Board/>);
-    (wrapper.find('Button#reset').text()).toMatch(/Reset/);
+    const wrapper = shallow(<Board />);
+    expect(wrapper.find('button#reset').text()).toBe('Reset');
   })
 
 });

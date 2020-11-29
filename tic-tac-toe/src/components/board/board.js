@@ -73,6 +73,9 @@ class Board extends React.Component {
           {this.renderBoard()}
         </div>
         <div id="summary" className="status center"> {gameSummary} </div>
+        <div className="game-options" >
+          <button id="reset" className="btn btn-reset">Reset</button>
+        </div>
       </div>
     );
   }
