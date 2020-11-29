@@ -86,7 +86,7 @@ describe('test board component', () => {
     expect(instance.state.squares.every(element => element === null)).toBeTruthy();
   });
 
-  it('show game result for draw game', ()=> {
+  it('show game result for draw game', () => {
     const wrapper = shallow(<Board />);
     wrapper.find(Square).at(0).simulate('click');
     wrapper.find(Square).at(4).simulate('click');
@@ -98,5 +98,11 @@ describe('test board component', () => {
     wrapper.find(Square).at(5).simulate('click');
     wrapper.find(Square).at(3).simulate('click');
     expect(wrapper.find('div#summary').text()).toMatch(/Draw/);
+  });
+
+  it('reset button should be disabled when no more are made yet', () => {
+    const wrapper = shallow(<Board />);
+    expect(wrapper.find('button#reset').props().disabled).toBeTruthy();
   })
+
 });

@@ -85,7 +85,6 @@ class Board extends React.Component {
         <div className="center">
           {this.renderBoard()}
         </div>
-
         <div className="game-options" >
           <button id="reset" onClick={this.resetGame} className="btn btn-reset">Reset</button>
         </div>
