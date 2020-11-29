@@ -84,6 +84,7 @@ exports[`render app with tic-tac-toe layout 1`] = `
         >
           <button
             className="btn btn-reset"
+            disabled={true}
             id="reset"
             onClick={[Function]}
           >
