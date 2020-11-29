@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
-import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 
 test('renders header with Lets Play Tic Tac Toe', () => {

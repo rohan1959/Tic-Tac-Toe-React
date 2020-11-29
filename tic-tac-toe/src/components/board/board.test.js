@@ -1,4 +1,4 @@
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import Square from '../square/square';
 import Board from './board';
 
@@ -23,6 +23,14 @@ describe('test board component', () => {
     expect(instance.state.squares.some(element => element === 'X')).toBeTruthy();
   })
 
+  it('alternative X and O when click on square',() => { 
+    const wrapper = shallow(<Board />);
+    const instance = wrapper.instance();
+    wrapper.find(Square).at(1).simulate('click');
+    wrapper.find(Square).at(5).simulate('click');
+    expect(instance.state.squares[1]).toBe('X');
+    expect(instance.state.squares[5]).toBe('O');
+  })
   
 
 });
