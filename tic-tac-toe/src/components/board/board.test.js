@@ -103,6 +103,12 @@ describe('test board component', () => {
   it('reset button should be disabled when no more are made yet', () => {
     const wrapper = shallow(<Board />);
     expect(wrapper.find('button#reset').props().disabled).toBeTruthy();
+  });
+
+  it('reset button should not be disable after a move is made',()=>{
+    const wrapper = shallow(<Board />);
+    wrapper.find(Square).at(0).simulate('click');
+    expect(wrapper.find('button#reset').props().disabled).toBeFalsy();
   })
 
 });
