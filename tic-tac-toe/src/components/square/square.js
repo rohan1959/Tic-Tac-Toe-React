@@ -2,7 +2,7 @@ import './square.css';
 
 function Square(props) {
   return (
-    <button>
+    <button className="square">
       X
     </button>
   );
