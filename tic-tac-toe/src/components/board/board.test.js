@@ -17,12 +17,12 @@ describe('test board component', () => {
   })
 
   it('click square to mark it with X on callback', () => {
-    const mockCallBack = jest.fn();
     const wrapper = shallow(<Board />);
     const instance = wrapper.instance();
     wrapper.find(Square).at(1).simulate('click');
     expect(instance.state.squares.some(element => element === 'X')).toBeTruthy();
-
   })
+
+  
 
 });
