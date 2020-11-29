@@ -8,15 +8,16 @@ class Board extends React.Component {
     super(props);
     this.state = {
       squares: Array(9).fill(null),
+      xAndOToggle: true,// True for X and False for O
     };
   }
 
   handleClick(i) {
     const squares = this.state.squares.slice();
-    squares[i] = 'X';
-
+    squares[i] = this.state.xAndOToggle ? 'X' : 'O';
     this.setState({
       squares: squares,
+      xAndOToggle: !this.state.xAndOToggle
     });
   }
 
