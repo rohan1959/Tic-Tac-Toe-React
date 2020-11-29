@@ -23,7 +23,7 @@ describe('test board component', () => {
     expect(instance.state.squares.some(element => element === 'X')).toBeTruthy();
   })
 
-  it('alternative X and O when click on square',() => { 
+  it('alternative X and O when click on square', () => {
     const wrapper = shallow(<Board />);
     const instance = wrapper.instance();
     wrapper.find(Square).at(1).simulate('click');
@@ -31,10 +31,21 @@ describe('test board component', () => {
     expect(instance.state.squares[1]).toBe('X');
     expect(instance.state.squares[5]).toBe('O');
   })
-  
-  it('show the current player to make move',  () => {
-    const wrapper = shallow(<Board/>);
+
+  it('show the current player to make move', () => {
+    const wrapper = shallow(<Board />);
     expect(wrapper.find('div.status').text()).toMatch(/Player to make move is/);
+  })
+
+  it('check for a winning pattern', () => {
+    const wrapper = shallow(<Board />);
+    const instance = wrapper.instance();
+    wrapper.find(Square).at(1).simulate('click');
+    wrapper.find(Square).at(5).simulate('click');
+    wrapper.find(Square).at(2).simulate('click');
+    wrapper.find(Square).at(4).simulate('click');
+    wrapper.find(Square).at(3).simulate('click');
+    expect(checkWinner(instance.state.squares)).toBeTruthy();
   })
 
 });

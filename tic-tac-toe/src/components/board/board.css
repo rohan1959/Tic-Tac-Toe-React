@@ -1,0 +1,16 @@
+div.status {
+  margin-bottom: 5%;
+  color: #343E47;
+  font-size: 30px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.board {
+  display: block;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
