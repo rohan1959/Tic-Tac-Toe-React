@@ -90,6 +90,12 @@ exports[`render app with tic-tac-toe layout 1`] = `
           >
             Reset
           </button>
+          <button
+            className="btn btn-undo"
+            id="undo"
+          >
+            Undo
+          </button>
         </div>
         <div
           className="status center"

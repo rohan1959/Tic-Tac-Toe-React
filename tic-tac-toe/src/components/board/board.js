@@ -87,6 +87,7 @@ class Board extends React.Component {
         </div>
         <div className="game-options" >
           <button id="reset" onClick={this.resetGame} disabled={this.state.steps < 1} className="btn btn-reset">Reset</button>
+          <button id="undo" className="btn btn-undo">Undo</button>
         </div>
         <div id="summary" className="status center"> {gameSummary} </div>
       </div>
