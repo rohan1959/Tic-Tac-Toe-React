@@ -12,7 +12,8 @@ describe('test board component', () => {
     const wrapper = shallow(<Board />);
     const instance = wrapper.instance();
     expect(instance.state.squares[0]).toBe(null);
-
+    expect(instance.state.squares.length).toBe(9);
+    instance.state.squares.every(element => expect(element).toBe(null));
   })
 
 });
