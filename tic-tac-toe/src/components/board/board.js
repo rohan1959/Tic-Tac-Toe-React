@@ -10,7 +10,8 @@ class Board extends React.Component {
     this.state = {
       squares: Array(9).fill(null),
       xAndOToggle: true,// True for X and False for O
-      steps: 0
+      steps: 0,
+      canUndo: false,
     };
   }
 
@@ -23,7 +24,8 @@ class Board extends React.Component {
     this.setState({
       squares: squares,
       xAndOToggle: !this.state.xAndOToggle,
-      steps: this.state.steps + 1
+      steps: this.state.steps + 1,
+      canUndo: true,
     });
   }
 
@@ -65,7 +67,8 @@ class Board extends React.Component {
     this.setState({
       squares: Array(9).fill(null),
       xAndOToggle: true,
-      steps: 0
+      steps: 0,
+      canUndo: false
     });
   }
 
@@ -87,7 +90,7 @@ class Board extends React.Component {
         </div>
         <div className="game-options" >
           <button id="reset" onClick={this.resetGame} disabled={this.state.steps < 1} className="btn btn-reset">Reset</button>
-          <button id="undo" className="btn btn-undo">Undo</button>
+          <button id="undo" disabled={!this.state.canUndo} className="btn btn-undo">Undo</button>
         </div>
         <div id="summary" className="status center"> {gameSummary} </div>
       </div>
