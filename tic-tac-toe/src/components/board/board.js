@@ -13,7 +13,7 @@ class Board extends React.Component {
 
   renderSquare(i) {
     return (
-      <Square key={i} />
+      <Square id={i} key={i} />
     );
   }
 
