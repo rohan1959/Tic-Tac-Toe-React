@@ -1,21 +1,18 @@
-import { render, screen } from '@testing-library/react';
 import Square from './square';
 import { shallow } from 'enzyme';
 
 
 describe('test square component', () => {
-
-  test('render square with button with value no value initially', () => {
-    render(<Square />);
-    const linkElement = screen.getByText('X');
-    expect(linkElement).toBeInTheDocument();
+  test('render square with button with value as passes by prop initially', () => {
+    const wrapper = shallow(<Square value='X' />);
+    expect(wrapper).toMatchSnapshot();
   });
 
   test('button to have on click property', () => {
     const mockCallBack = jest.fn();
-    const button = shallow(<Square />);
-    button.find('.square').simulate('click');
-    expect(mockCallBack.mock.calls.length).toEqual(1);
+    const wrapper = shallow(<Square onClick={mockCallBack} />);
+    wrapper.find('button').simulate('click');
+    expect(mockCallBack).toHaveBeenCalled();
   })
 });
 

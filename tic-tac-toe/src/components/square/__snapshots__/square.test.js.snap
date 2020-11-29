@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test square component render square with button with value as passes by prop initially 1`] = `ShallowWrapper {}`;
