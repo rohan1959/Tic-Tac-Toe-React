@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 import { shallow } from 'enzyme';
+import renderer from 'react-test-renderer';
 
 test('renders header with Lets Play Tic Tac Toe', () => {
   render(<App />);
@@ -8,6 +9,8 @@ test('renders header with Lets Play Tic Tac Toe', () => {
   expect(linkElement).toBeInTheDocument();
 });
 test('render app with tic-tac-toe layout', () => {
-  const wrapper = shallow(<App />);
-  expect(wrapper).toMatchSnapshot();
+  const tree = renderer
+    .create(<App />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
 });
