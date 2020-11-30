@@ -94,6 +94,7 @@ exports[`render app with tic-tac-toe layout 1`] = `
             className="btn btn-undo"
             disabled={true}
             id="undo"
+            onClick={[Function]}
           >
             Undo
           </button>
