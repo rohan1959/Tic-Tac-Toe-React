@@ -133,4 +133,31 @@ describe('test board component', () => {
     expect(instance.state.squares[5]).toBeNull();
   })
 
+  it('game status for a player to win', () => {
+    const wrapper = shallow(<Board />);
+    const firstPlayer = wrapper.find('div.status').children().first().text();
+    expect(firstPlayer).toEqual('Player to make move is X');
+
+    const button = wrapper.find(Square).at(0);
+    button.simulate('click');
+    const secondPlayer = wrapper.find('div.status').children().first().text();
+    expect(secondPlayer).toEqual('Player to make move is O');
+
+    //player 2
+    const turn2 = wrapper.find(Square).at(1);
+    turn2.simulate('click');
+    //player 1
+    const turn3 = wrapper.find(Square).at(4);
+    turn3.simulate('click');
+    //player 2
+    const turn4 = wrapper.find(Square).at(5);
+    turn4.simulate('click');
+    //player 1
+    const turn5 = wrapper.find(Square).at(8);
+    turn5.simulate('click');
+
+    const winner = wrapper.find('div#summary').text();
+    expect(winner).toMatch('Winner: X');
+  })
+
 });

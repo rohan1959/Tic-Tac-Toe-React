@@ -8,29 +8,40 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares: Array(9).fill(null),
-      xAndOToggle: true,// True for X and False for O
       steps: 0,
+      squares: Array(9).fill(null),
+      xAndOToggle: true,
       canUndo: false,
-      history: Array(9).fill(null)
+      history: [
+        {
+          squares: Array(9).fill(null),
+        },
+      ]
     };
   }
 
+  getTurn() {
+    return this.state.xAndOToggle ? "X" : "O";
+  }
+
   handleClick(i) {
-    const squares = this.state.squares.slice();
-    const history = this.state.history.slice();
-    history[0] = Array(9).fill(null);
-    history[this.state.steps + 1] = squares;
+    const history = this.state.history.slice(0, this.state.steps + 1);
+    const current = history[history.length - 1];
+    const squares = current.squares.slice();
     if (checkWinner(squares) || squares[i]) {
-      return; // this condition stops the user from clicking anymore once we have a winner. 
+      return;
     }
-    squares[i] = this.state.xAndOToggle ? 'X' : 'O';
+    squares[i] = this.getTurn();
     this.setState({
       squares: squares,
-      xAndOToggle: !this.state.xAndOToggle,
-      steps: this.state.steps + 1,
-      history: history,
+      history: history.concat([
+        {
+          squares: squares,
+        },
+      ]),
       canUndo: true,
+      steps: history.length,
+      xAndOToggle: !this.state.xAndOToggle,
     });
   }
 
@@ -83,7 +94,7 @@ class Board extends React.Component {
     previousHistory[this.state.steps] = null;
     let steps = this.state.steps - 1;
     this.setState({
-      squares: previousSquare,
+      squares: previousSquare.squares,
       steps: steps,
       xAndOToggle: !this.state.xAndOToggle,
       history: previousHistory,
